@@ -48,6 +48,22 @@
     text-align: center;
 }
 
+.Section2 h1{
+    color:white;
+    font-size: 3rem;
+}
 
+  .Experience1 {
+    color:white;
+    background: fixed;
+    background-color: gray;
+    text-align: center;
+    position: absolute;
+    margin-top: 15%;
+    width: 50%;
+    height: 20%;
+    border:2px solid white;
+    box-shadow: 0 0 15px 5px white;
 
-  
+    
+  }
