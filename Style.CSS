@@ -8,7 +8,7 @@ body{
     background-image: url('/Images/working.gif');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +16,8 @@ body{
 /* Make the text have a typing effect that alternates between forward and backwards */
 .Section1 h1 {
     color: white;
-    font-size: 5rem;  
-    width: 25ch;
+    font-size: 3rem;  
+    min-width: 100vw auto;
     border-right: 2px solid white;
     white-space: nowrap;
     overflow: hidden;
@@ -104,6 +104,25 @@ body{
   color: white;
 }
 
+/* you will add the hidden boexs here for the experience section */
+.hidden-boxes1,
+.hidden-boxes2,
+.hidden-boxes3 {
+   width: 700px; 
+    height: 200px;
+    background-color: black;
+    border: 2px solid white;
+    margin-bottom: 20px; /* Space between boxes */
+}
+
+.hidden-boxes1.show,
+.hidden-boxes2.show,
+.hidden-boxes3.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    color: white;
+}
 
 /* Make sure for this one, you create boxes where you can click to images 
 of projects and itll take you to their github */
