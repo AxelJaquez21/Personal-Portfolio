@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="Style.CSS">
-    <script src="script.js" async></script>
-</script>
+    <script src="script.js" defer></script>
+
 
 </head>
+<!--we will be making a loader animation that happens when you load the page and then shows the content aka the portfolio-->
 <body>
     <div class="Section1" >
         <h1> Welcome to Axel's Portfolio</h1>
@@ -18,61 +19,66 @@
                 <li><a href="#">Project</a></li>
                 <li><a href="#">Skills</a></li>
                 <li><a href="#">About Me</a></li>
-                <li><a href="#">Contacat</a></li>
-                <li><a href="#">Resume</a></li> 
+                <li><a href="#">Contact</a></li>
+                <li><a href="/Resume.pdf">Resume</a></li> 
             </nav>
           
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
-<script>
 
-  const { animate, scroll } = Motion
-</script>
-
-    <div class="Section2" id="Experience">
-         <h1>Professional Experiences</h1>
-         <!-- This is where youll put all your work experiences-->
-
-        <div class="Experience1">
-            <h2>AI Research Assistant Intern</h2>
-            <h3>University at Suny Albany, NY | January 2025 - June 2025</h3>
-            <ul>
-                <li>Developed and maintained web applications using JavaScript, HTML, and CSS.</li>
-                <li>Collaborated with cross-functional teams to design and implement new features.</li>
-                <li>Participated in code reviews and contributed to improving code quality.</li>
-            </ul>
+    <div class="Section2" >
+        <h1>Professional Experiences</h1>
+        <!-- This is where youll put all your work experiences-->
+        <!-- I will be making hidden boxes classes to be under the experinece-->
+         
+        <div class="Experience1 hidden ">
+                <h2>AI Research Assistant Intern</h2>
+                <h3>University at Suny Albany, NY | January 2025 - June 2025</h3>
+                    <ul>
+                        <li>Developed and maintained web applications using JavaScript, HTML, and CSS.</li>
+                        <li>Collaborated with cross-functional teams to design and implement new features.</li>
+                        <li>Participated in code reviews and contributed to improving code quality.</li>
+                    </ul>
         </div>
 
-        <div class="Experience2">
-            <h2>Software Developer Research Intern</h2>
-            <h3>University at Suny Albany, NY | August 2025 - Present</h3>
-            <ul>
-                <li>Assisted in the development of a machine learning model to predict customer churn.</li>
-                <li>Conducted data analysis and visualization using Python and libraries such as Pandas and Matplotlib.</li>
-                <li>Presented findings and recommendations to the research team.</li>
 
-            </ul>
+        <div class="Experience2 hidden">
+                <h2>Software Developer Research Intern</h2>
+                <h3>University at Suny Albany, NY | August 2025 - Present</h3>
+                    <ul>
+                        <li>Assisted in the development of a machine learning model to predict customer churn.</li>
+                        <li>Conducted data analysis and visualization using Python and libraries such as Pandas and Matplotlib.</li>
+                        <li>Presented findings and recommendations to the research team.</li>
+
+                    </ul>
         </div>
 
-        <div class="Experience3">
-            <h2>Allied Universal (regeneron)- Contrated Security</h2>
-            <h3> Rensselaer, NY | May 2024 - Present</h3>
-            <ul>
-                <li>Provided technical support to end-users via phone, email, and in-person.</li>
-                <li>Troubleshot hardware and software issues, ensuring timely resolution.</li>
-                <li>Maintained documentation of support activities and created user guides.</li>
-            </ul>
+
+        <div class="Experience3 hidden">
+                <h2>Allied Universal (regeneron)- Contrated Security</h2>
+                <h3> Rensselaer, NY | May 2024 - Present</h3>
+                    <ul>
+                        <li>Provided technical support to end-users via phone, email, and in-person.</li>
+                        <li>Troubleshot hardware and software issues, ensuring timely resolution.</li>
+                        <li>Maintained documentation of support activities and created user guides.</li>
+                    </ul>
+        </div>
+       
         
     </div>
 
-
-<!-- this will be a comment until section 2 is finished
-
     <div class="Section3" id="Projects">
         <h1>Personal Projects</h1>
+        <!-- Here you will enter the pictures that you will incase in
+        rectangle or square boarders with active hover links to you github-->
+
+        <div class="project-1"> ...</div>
+        <div class="project-2"> ...</div>
+        <div class="project-3"> ...</div>
+
     </div>
--->
+
+
 </body>
 
 </html>
