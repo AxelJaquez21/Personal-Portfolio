@@ -1,15 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hiddenElements = document.querySelectorAll(".hidden");
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.Experience1, .Experience2, .Experience3');
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        entry.target.classList.remove("hidden"); 
-        observer.unobserve(entry.target); // optional, only animate once
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); // Stop observing once visible
       }
     });
-  }, { threshold: 0.2 }); // trigger when 20% of box is visible
+  }, {
+    threshold: 0.5 // Trigger when 50% of the element is visible
+  });
 
-  hiddenElements.forEach(el => observer.observe(el));
+  elements.forEach(element => {
+    observer.observe(element);
+  });
 });

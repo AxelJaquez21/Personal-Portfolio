@@ -1,14 +1,15 @@
 body{
     background-color: black;
     border-radius: 5px;
+   
 }
-
 
 .Section1{
     background-image: url('/Images/working.gif');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +38,9 @@ body{
     from { width: 0; }
     to { width: 25ch; }
 }
+/* Navigation menu styles 
+Make sure to put this as a side navigation bar */
+
 
 .Section1 nav {
     position: absolute;
@@ -82,7 +86,7 @@ body{
 .Experience2.hidden,
 .Experience3.hidden {
   color: white;
-  background-color: gray;
+  background-color: black;
   text-align: center;
   position: relative; /* changed from absolute */
   margin: 2rem auto;   /* changed from large margin-top */
@@ -92,37 +96,20 @@ body{
   box-shadow: 0 0 15px 5px white;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(50px);
-  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1); 
+  transform: translateX(-100%); /* Start off-screen to the left */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
 }
 .Experience1.show,
 .Experience2.show,
 .Experience3.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
   pointer-events: auto;
   color: white;
 }
 
-/* you will add the hidden boexs here for the experience section */
-.hidden-boxes1,
-.hidden-boxes2,
-.hidden-boxes3 {
-   width: 700px; 
-    height: 200px;
-    background-color: black;
-    border: 2px solid white;
-    margin-bottom: 20px; /* Space between boxes */
-}
 
-.hidden-boxes1.show,
-.hidden-boxes2.show,
-.hidden-boxes3.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    color: white;
-}
+
 
 /* Make sure for this one, you create boxes where you can click to images 
 of projects and itll take you to their github */
