@@ -70,6 +70,7 @@ Make sure to put this as a side navigation bar */
     background-size: cover;
     background-position: center;
     min-height: 100vh; 
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;      /* <-- Center horizontally */
@@ -85,31 +86,52 @@ Make sure to put this as a side navigation bar */
 .Experience1.hidden,
 .Experience2.hidden,
 .Experience3.hidden {
-  color: white;
-  background-color: black;
-  text-align: center;
-  position: relative; /* changed from absolute */
-  margin: 2rem auto;   /* changed from large margin-top */
-  width: 50%;
-  min-height: 150px;
-  border: 2px solid white;
-  box-shadow: 0 0 15px 5px white;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-100%); /* Start off-screen to the left */
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+    color: white;
+    background-color: black;
+    text-align: center;
+    position: relative;
+    margin: 2rem auto;
+    width: 70%;              /* wider box */
+    min-height: 150px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
 .Experience1.show,
 .Experience2.show,
 .Experience3.show {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  color: white;
+    color: white;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+/* Underneath youll put the boxes that will go in pair with the experiences */
+.Experience-Container1, .Experience-Container2, .Experience-Container3 {
+    background-color: transparent;
+    margin: 2rem auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 5px white;
+    width: 860px;
+    height: 250px;
+
 }
 
-
-
+.Experience-Container1::before, .Experience-Container2::before, .Experience-Container3::before {
+   content: "";
+  position: absolute;
+  top: 10px;      /* shift for "behind" look */
+  left: 10px;
+  width: 860px;
+  height: 250px;
+  background: red;
+  border-radius: 10px;
+  z-index: -1;    /* stays behind */
+}
+    
 
 /* Make sure for this one, you create boxes where you can click to images 
 of projects and itll take you to their github */
@@ -118,6 +140,7 @@ of projects and itll take you to their github */
     background-size: cover;
     background-position:center;
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -129,3 +152,33 @@ of projects and itll take you to their github */
     font-size: 3rem;
     
   }
+
+  /*
+  
+  .Project-Gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.Project-Gallery img {
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.Project-Gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,255,255,1);
+}
+
+  
+  
+  */

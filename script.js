@@ -1,18 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const elements = document.querySelectorAll('.Experience1, .Experience2, .Experience3');
+document.addEventListener("DOMContentLoaded", () => {
+    const hiddenElements = document.querySelectorAll(
+        ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
+    );
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target); // Stop observing once visible
-      }
-    });
-  }, {
-    threshold: 0.5 // Trigger when 50% of the element is visible
-  });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                entry.target.classList.remove("hidden"); // optional, keeps code cleaner
+                observer.unobserve(entry.target); // only animate once
+            }
+        });
+    }, { threshold: 0.2 }); // trigger when 20% visible
 
-  elements.forEach(element => {
-    observer.observe(element);
-  });
+    hiddenElements.forEach((el) => observer.observe(el));
 });
+
+/* -Keep this as a comment and chnage the selectiors for the boxes you created-
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hiddenElements = document.querySelectorAll(
+        ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                entry.target.classList.remove("hidden"); // optional, keeps code cleaner
+                observer.unobserve(entry.target); // only animate once
+            }
+        });
+    }, { threshold: 0.2 }); // trigger when 20% visible
+
+    hiddenElements.forEach((el) => observer.observe(el));
+});
+ */
