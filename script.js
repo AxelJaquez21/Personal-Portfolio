@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.2 } // show/hide when 20% of container is visible
   );
 
   // Observe each container

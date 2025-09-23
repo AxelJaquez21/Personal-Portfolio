@@ -52,6 +52,8 @@ body {
     align-items: center;
 }
 /* Make the text have a typing effect that alternates between forward and backwards */
+}
+/* Make the text have a typing effect that alternates between forward and backwards */
 .Section1 h1 {
     color: white;
     font-size: 3rem;  
@@ -70,6 +72,7 @@ body {
   50% { border-color: transparent; }
 }
 
+/* typing effect */
 /* typing effect */
 @keyframes typing {
   from { width: 0; }
