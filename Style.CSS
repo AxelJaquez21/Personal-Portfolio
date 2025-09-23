@@ -1,93 +1,72 @@
-/* Loader */
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+body {
+  background-color: black;
+  border-radius: 5px;
+}
+
+.Section1 {
+  background-image: url('/Images/working.gif');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
-  transition: opacity 1s, visibility 1s;
-  z-index: 9999;
+}
+/* Avatar positioning and smooth transitions */
+.Section1 model-viewer {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 300px;
+    height: 500px;
+    transition: transform 0.5s ease-in-out; /* smooth subtle movement */
+    will-change: transform; /* optimize animation performance */
 }
 
-.loader-hidden {
-  opacity: 0;
-  visibility: hidden;
+/* Optional: subtle floating effect to complement waving */
+.Section1 model-viewer.wave {
+    animation: floatWave 2s ease-in-out infinite;
 }
 
-.loader::after {
-  content: "";
-  width: 75px;
-  height: 75px;
-  border: 15px solid #dddddd;
-  border-top-color: #7449f5;
-  border-radius: 50%;
-  animation: loading 1s linear infinite;
+@keyframes floatWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
-
-@keyframes loading {
-  from { transform: rotate(0turn); }
-  to   { transform: rotate(1turn); }
-}
-
-.page-content {
-  display: none;
-}
-
-body {
-  background-color: black;
-}
-
-.Section1{
-    background-image: url('/Images/working.gif');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* Make the text have a typing effect that alternates between forward and backwards */
-}
-/* Make the text have a typing effect that alternates between forward and backwards */
+/* Typing effect for the heading */
 .Section1 h1 {
-    color: white;
-    font-size: 3rem;  
-    min-width: 100vw auto;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(22) infinite alternate, cursor .4s step-end infinite;
-}
-.Section1 h1::after {
-  content: "|";
+  color: white;
+  font-size: 3rem;
+  width: 25ch; /* maximum width of the text */
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(25) infinite alternate, blink 0.5s step-end infinite;
 }
 
-/* cursor effect */
-@keyframes cursor {
-  50% { border-color: transparent; }
-}
-
-/* typing effect */
 /* typing effect */
 @keyframes typing {
   from { width: 0; }
-  to   { width: 25ch; }
+  to { width: 25ch; }
 }
-/* Navigation menu styles 
-Make sure to put this as a side navigation bar */
+
+/* cursor blinking effect */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+
+/* Navigation menu styles Make sure to put this as a side navigation bar */
 span {
-    font-size:30px;
-    cursor:pointer;
-    color:white;
-    position:absolute;
-    top:10px;
-    right:10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -101,27 +80,46 @@ span {
   padding-top: 60px;
 }
 
-.Section1 nav a {
-  color: white;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
   text-decoration: none;
-  padding-left: 10px;
-  font-size: 1.5rem;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.Section1 nav a:hover {
-  color: red;
-  text-decoration: underline;
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-/* Section 2 */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+	padding-top: 15px;
+  }
+  .sidenav a {
+	font-size: 18px;
+  }
+}
+
 .Section2 {
-  background-image: url("/Images/city2.gif");
+  background-image: url('/Images/city2.gif');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* <-- Center horizontally */
+  justify-content: flex-start; /* <-- Start from top */
   text-align: center;
 }
 
@@ -130,35 +128,41 @@ span {
   font-size: 3rem;
 }
 
-.Experience1.hidden,
-.Experience2.hidden,
-.Experience3.hidden {
+/* Make children inherit the container's animation */
+.Experience-Container1.show .Experience1,
+.Experience-Container2.show .Experience2,
+.Experience-Container3.show .Experience3 {
   background-color: black;
-  text-align: center;
   margin: 2rem auto;
-  width: 50%;
-  min-height: 150px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-100%);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.Experience1.show,
-.Experience2.show,
-.Experience3.show {
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px white;
+  width: 860px;
+  height: 250px;
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
-  color: white;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Section 3 */
+.Experience1,
+.Experience2,
+.Experience3 {
+  color: white;
+  text-align: center;
+  position: relative;
+  margin: 2rem auto;
+  min-height: 150px;
+  opacity: 0; /* start hidden */
+  transform: translateX(-100%);
+}
+
 .Section3 {
-  background-image: url("/Images/Projects-Working.gif");
+  background-image: url('/Images/Projects-Working.gif');
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -184,12 +188,12 @@ span {
   width: 100%;
   border: 3px solid white;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .Project-Gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(255,255,255,1);
 }
