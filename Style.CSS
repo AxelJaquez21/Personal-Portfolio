@@ -4,7 +4,8 @@ body{
 
 }
 
-.Section1{
+/* Section1 updates for smoother avatar wave display */
+.Section1 {
     background-image: url('/Images/working.gif');
     background-size: cover;
     background-position: center;
@@ -13,31 +14,56 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* needed for absolute positioning of model-viewer */
 }
-/* Make the text have a typing effect that alternates between forward and backwards */
+
+/* Avatar positioning and smooth transitions */
+.Section1 model-viewer {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 300px;
+    height: 500px;
+    transition: transform 0.5s ease-in-out; /* smooth subtle movement */
+    will-change: transform; /* optimize animation performance */
+}
+
+/* Optional: subtle floating effect to complement waving */
+.Section1 model-viewer.wave {
+    animation: floatWave 2s ease-in-out infinite;
+}
+
+@keyframes floatWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Header tweaks to avoid overlap with avatar */
 .Section1 h1 {
     color: white;
     font-size: 3rem;  
-    min-width: 100vw auto;
+    max-width: 600px; /* prevent stretching across viewport */
     border-right: 2px solid white;
     white-space: nowrap;
     overflow: hidden;
     animation: typing 4s steps(22) infinite alternate, cursor .4s step-end infinite;
+    z-index: 1; /* ensure text is above background but behind avatar if needed */
 }
+
+/* Typing cursor effect */
 .Section1 h1::after {
     content: '|';
 }
-
-/* cursor effect */
 @keyframes cursor {
     50% { border-color: transparent; }
 }
 
-/* typing effect */
+/* Typing effect */
 @keyframes typing {
     from { width: 0; }
     to { width: 25ch; }
 }
+
 /* Navigation menu styles 
 Make sure to put this as a side navigation bar */
 span {

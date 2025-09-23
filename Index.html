@@ -6,9 +6,7 @@
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="style.css?v=2">
     <script src="script.js?v=2" defer></script>
-
-
-
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <!--we will be making a loader animation that happens when you load the page and then shows the content aka the portfolio-->
 <body>
@@ -25,6 +23,17 @@
                 <a href="#Contact">Contact</a>
                 <a href="/Resume.pdf">Resume</a>
            </div>    
+          <!-- Add your 3D Avatar model viewer below -->
+          <model-viewer 
+            id="rmp-avatar"
+            src="https://models.readyplayer.me/68d2a88903969e4c3c26f52d.glb" 
+            alt="Ready Player Me Avatar"
+            auto-rotate 
+            amera-controls 
+            disable-zoom
+            style="width: 300px; height: 500px; position: absolute; bottom: 0; right: 50px;">
+          </model-viewer>
+
     </div>
 
     
