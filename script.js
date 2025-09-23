@@ -1,38 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const hiddenElements = document.querySelectorAll(
-        ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
-    );
+  const loader = document.querySelector(".loader");
+  const content = document.querySelector(".page-content");
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                entry.target.classList.remove("hidden"); // optional, keeps code cleaner
-                observer.unobserve(entry.target); // only animate once
-            }
-        });
-    }, { threshold: 0.2 }); // trigger when 20% visible
+  loader.classList.add("loader-hidden");
 
-    hiddenElements.forEach((el) => observer.observe(el));
+  loader.addEventListener("transitionend", () => {
+    loader.remove();
+    content.style.display = "block"; // show the content
+  });
+
+  // Animate experiences on scroll
+  const hiddenElements = document.querySelectorAll(
+    ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          entry.target.classList.remove("hidden");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  hiddenElements.forEach((el) => observer.observe(el));
 });
-
-/* -Keep this as a comment and chnage the selectiors for the boxes you created-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const hiddenElements = document.querySelectorAll(
-        ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
-    );
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                entry.target.classList.remove("hidden"); // optional, keeps code cleaner
-                observer.unobserve(entry.target); // only animate once
-            }
-        });
-    }, { threshold: 0.2 }); // trigger when 20% visible
-
-    hiddenElements.forEach((el) => observer.observe(el));
-});
- */

@@ -1,201 +1,180 @@
-body{
-    background-color: black;
-    border-radius: 5px;
-   
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  transition: opacity 1s, visibility 1s;
+  z-index: 9999;
 }
 
-.Section1{
-    background-image: url('/Images/working.gif');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
-/* Make the text have a typing effect that alternates between forward and backwards */
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #7449f5;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  from { transform: rotate(0turn); }
+  to   { transform: rotate(1turn); }
+}
+
+.page-content {
+  display: none;
+}
+
+body {
+  background-color: black;
+}
+
+/* Section 1 */
+.Section1 {
+  background-image: url("/Images/working.gif");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Section1 h1 {
-    color: white;
-    font-size: 3rem;  
-    min-width: 100vw auto;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(22) infinite alternate, cursor .4s step-end infinite;
+  color: white;
+  font-size: 3rem;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 4s steps(22) infinite alternate,
+    cursor 0.4s step-end infinite;
 }
+
 .Section1 h1::after {
-    content: '|';
+  content: "|";
 }
 
-/* cursor effect */
 @keyframes cursor {
-    50% { border-color: transparent; }
+  50% { border-color: transparent; }
 }
 
-/* typing effect */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 25ch; }
+  from { width: 0; }
+  to   { width: 25ch; }
 }
-/* Navigation menu styles 
-Make sure to put this as a side navigation bar */
 
-
+/* Nav */
 .Section1 nav {
-    position: absolute;
-    display: inline-flex;
-    float: right;
-    top:10px;
-    right: 15px;
-   list-style-type: none;
-    
+  position: absolute;
+  display: inline-flex;
+  top: 10px;
+  right: 15px;
+  list-style-type: none;
 }
 
 .Section1 nav a {
-    color:white;
-    text-decoration: none;
-    padding-left: 10px;
-    font-size: 1.5rem;
-    
+  color: white;
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 1.5rem;
 }
 
 .Section1 nav a:hover {
-    color: red;
-    text-decoration: underline;
+  color: red;
+  text-decoration: underline;
 }
 
+/* Section 2 */
 .Section2 {
-    background-image: url('/Images/city2.gif');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; 
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;      /* <-- Center horizontally */
-    justify-content: flex-start; /* <-- Start from top */
-    text-align: center;
+  background-image: url("/Images/city2.gif");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.Section2 h1{
-    color:white;
-    font-size: 3rem;
-}
-/* Experience boxes styles */
-/* Base container setup */
-.Experience-Container1,
-.Experience-Container2,
-.Experience-Container3 {
-    position: relative;
-    background-color: black;
-    margin: 2rem auto;
-    border: 2px solid white;
-    border-radius: 10px;
-    box-shadow: 0 0 15px 5px white;
-    width: 860px;
-    height: 250px;
-    z-index: 1;
-    overflow: visible;
+.Section2 h1 {
+  color: white;
+  font-size: 3rem;
 }
 
-/* Colored background boxes behind each container */
-.Experience-Container1::before,
-.Experience-Container2::before,
-.Experience-Container3::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    z-index: 0;
-}
-
-.Experience-Container1::before {
-    background: red;   /* first experience */
-}
-
-.Experience-Container2::before {
-    background: blue;  /* second experience */
-}
-
-.Experience-Container3::before {
-    background: green; /* third experience */
-}
-
-/* Experience content */
-.Experience1,
-.Experience2,
-.Experience3 {
-    position: relative;
-    background-color: black; /* keeps red/blue/green behind */
-    color: white;
-    border-radius: 10px;
-    padding: 1rem;
-    z-index: 2;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+.Experience1.hidden,
+.Experience2.hidden,
+.Experience3.hidden {
+  background-color: black;
+  text-align: center;
+  margin: 2rem auto;
+  width: 50%;
+  min-height: 150px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .Experience1.show,
 .Experience2.show,
 .Experience3.show {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  color: white;
 }
 
+/* Section 3 */
+.Section3 {
+  background-image: url("/Images/Projects-Working.gif");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-/* Make sure for this one, you create boxes where you can click to images 
-of projects and itll take you to their github */
-  .Section3 {
-    background-image: url('/Images/Projects-Working.gif');
-    background-size: cover;
-    background-position:center;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    
-  }
+.Section3 h1 {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+}
 
-  .Section3 h1 {
-    color:white;
-    font-size: 3rem;
-    
-  }
-
-  /*
-  
-  .Project-Gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.Project-Gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .Project-Gallery img {
-    width: 100%;
-    border: 3px solid white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.8);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+  width: 100%;
+  border: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .Project-Gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255,255,255,1);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
-
-  
-  
-  */
