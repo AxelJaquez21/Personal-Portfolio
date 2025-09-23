@@ -1,31 +1,34 @@
+// Side navigation open/close functions
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+
+// into view when scrolled into view affect on experience section2
 document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".loader");
-  const content = document.querySelector(".page-content");
-
-  loader.classList.add("loader-hidden");
-
-  loader.addEventListener("transitionend", () => {
-    loader.remove();
-    content.style.display = "block"; // show the content
-  });
-
-  // Animate experiences on scroll
-  const hiddenElements = document.querySelectorAll(
-    ".Experience1.hidden, .Experience2.hidden, .Experience3.hidden"
+  // Select all experience containers
+  const containers = document.querySelectorAll(
+    ".Experience-Container1, .Experience-Container2, .Experience-Container3"
   );
 
+  // IntersectionObserver to trigger animation when visible/invisible
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          entry.target.classList.remove("hidden");
-          observer.unobserve(entry.target);
+          entry.target.classList.add("show");   // slide in
+        } else {
+          entry.target.classList.remove("show"); // slide out
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.2 } // show/hide when 20% of container is visible
   );
 
-  hiddenElements.forEach((el) => observer.observe(el));
+  // Observe each container
+  containers.forEach((container) => observer.observe(container));
 });
