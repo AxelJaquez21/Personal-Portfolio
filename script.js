@@ -6,6 +6,40 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+// Smooth scrolling with custom duration so it scrolls slower rather than way too fast using css //
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute("href"));
+    if (!target) return;
+
+    const targetPosition = target.offsetTop;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // 1000ms = 1s (make this larger for slower)
+    let start = null;
+
+    function animation(currentTime) {
+      if (start === null) start = currentTime;
+      const elapsed = currentTime - start;
+      const progress = Math.min(elapsed / duration, 1);
+
+      window.scrollTo(0, startPosition + distance * progress);
+
+      if (elapsed < duration) requestAnimationFrame(animation);
+    }
+
+    requestAnimationFrame(animation);
+
+    // Optional: close the sidenav after clicking
+    document.getElementById("mySidenav").style.width = "0";
+  });
+});
+
+
 // Avatar wave animation
 document.addEventListener("DOMContentLoaded", () => {
   // Select all experience containers

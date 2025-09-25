@@ -4,9 +4,11 @@ body {
 }
 
 .Section1 {
-  background-image: url('/Images/working.gif');
+  background-image: url('/Images/working2.gif');
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  position: relative;
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
@@ -67,17 +69,18 @@ span {
   right: 10px;
 }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
+
+.Section1 .sidenav {
+  position: absolute;   /* stays inside Section1 only */
   top: 0;
   right: 0;
+  height: 92.3%;         /* fills Section1 only */
+  width: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  z-index: 10;
 }
 
 .sidenav a {
@@ -111,8 +114,9 @@ span {
 }
 
 .Section2 {
-  background-image: url('/Images/city2.gif');
+  background-image: url('/Images/city3.gif');
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   min-height: 100vh;
   width: 100vw;
@@ -158,8 +162,10 @@ span {
 }
 
 .Section3 {
-  background-image: url('/Images/Projects-Working.gif');
+  background-image: url('/Images/city3.gif');
   background-size: cover;
+  position: relative;
+  background-attachment: fixed;
   background-position: center;
   height: 100vh;
   width: 100vw;
@@ -174,6 +180,29 @@ span {
   position: absolute;
 }
 
+.project1 h3 {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 150px; /* Adjust as needed */
+  left: 215px; 
+}
+
+.project2 h3 {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 150px; /* Adjust as needed */
+  left: 600px; 
+}
+
+.project3 h3 {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 150px; /* Adjust as needed */
+  left: 1000px; 
+}
 .Project-Gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,4 +225,88 @@ span {
 .Project-Gallery img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255,255,255,1);
+}
+
+.Coding-Picture-Container{
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    width: 420px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.Section4{
+    color: white;
+    background-image: url('/Images/city3.gif');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Section4 h1 {
+  text-align: center;
+}
+
+.Section4 img {
+  justify-content: center;
+  align-items: center;
+}
+
+.Languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center;
+  gap: 1rem; /* Increased gap for clarity */
+}
+
+.Languages img {
+  margin: 0.5rem; /* Reduced margin for closer spacing */
+  width: 80px;    /* Set a consistent width */
+  height: 80px;   /* Set a consistent height */
+  object-fit: contain; /* Prevent distortion */
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  
+}
+
+.Frameworks-Libraries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center;
+  gap: 1rem; /* Increased gap for clarity */
+}
+
+.Frameworks-Libraries img {
+  margin: 0.5rem; /* Reduced margin for closer spacing */
+  width: 80px;    /* Set a consistent width */
+  height: 80px;   /* Set a consistent height */
+  object-fit: contain; /* Prevent distortion */
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.Databases-and-Tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center;
+  gap: 1rem; /* Increased gap for clarity */
+
+}
+
+.Databases-and-Tools img {
+  margin: 0.5rem; /* Reduced margin for closer spacing */
+  width: 80px;    /* Set a consistent width */
+  height: 80px;   /* Set a consistent height */
+  object-fit: contain; /* Prevent distortion */
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
