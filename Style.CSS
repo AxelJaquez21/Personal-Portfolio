@@ -314,3 +314,91 @@ span {
   padding: 10px;
   box-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
+
+/* Section 5 */
+
+
+
+
+
+/* section for when using phones to check the website */
+
+@media screen and (max-width: 768px) {
+  /* Fix background attachment (iOS Safari bug) */
+  .Section1,
+  .Section2,
+  .Section3,
+  .Section4 {
+    background-attachment: scroll;
+  }
+
+  /* Avatar adjustments */
+  @media screen and (max-width: 768px) {
+    .Section1 model-viewer {
+      width: 180px;
+      height: 300px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+  }
+
+
+  /* Side nav adjustments */
+  @media screen and (max-width: 768px) {
+  .sidenav {
+    width: 50%;   /* when opened, fills screen */
+    height: 10%;
+  }
+  .sidenav a {
+    font-size: 22px;
+    text-align: center;
+  }
+  }
+
+
+  /* Headings resize */
+  h1 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+
+  /* Experience boxes responsive */
+ .Experience-Container1.show .Experience1,
+ .Experience-Container2.show .Experience2,
+ .Experience-Container3.show .Experience3 {
+  width: 90%;          /* shrink to fit */
+  max-width: 860px;    /* still fine on desktop */
+  height: auto;        /* allow content height */
+ }
+
+
+  /* Project gallery responsive */
+  .Project-Gallery {
+    grid-template-columns: 1fr; /* one per row */
+    gap: 1rem;
+  }
+  
+  .Project-Gallery img,
+  .Skills-Icons img {
+  max-width: 100%;
+  height: auto;
+  }
+
+
+  /* Center section headings */
+  .Section2 h1,
+  .Section3 h1,
+  .Section4 h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
