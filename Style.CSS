@@ -172,6 +172,8 @@ span {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin-bottom: 0;   /* remove gap at bottom */
+  padding-bottom: 0;
 }
 
 .Section3 h1 {
@@ -244,6 +246,8 @@ span {
     background-position: center;
     height: 100vh;
     width: 100vw;
+    margin-top: 0;      /* remove gap at top */
+    padding-top: 2rem;  /* add controlled spacing */
 }
 
 .Section4 h1 {

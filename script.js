@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           avatar.animationName = 'idle';
           avatar.classList.remove('waving');
-          setTimeout(loopWave, 3000); // idle for 3s before next wave
+          setTimeout(loopWave, 300); // idle for .3s before next wave
         }, 2000); // wave duration 2s
       };
 
