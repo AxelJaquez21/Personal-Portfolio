@@ -66,7 +66,7 @@ span {
   color: white;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 23px;
 }
 
 
@@ -74,7 +74,7 @@ span {
   position: absolute;   /* stays inside Section1 only */
   top: 0;
   right: 0;
-  height: 92.3%;         /* fills Section1 only */
+  height: 93%;         /* fills Section1 only */
   width: 0;
   background-color: #111;
   overflow-x: hidden;
@@ -247,7 +247,7 @@ span {
     height: 100vh;
     width: 100vw;
     margin-top: 0;      /* remove gap at top */
-    padding-top: 2rem;  /* add controlled spacing */
+    padding-top: 1rem;  /* add controlled spacing */
 }
 
 .Section4 h1 {
@@ -278,6 +278,11 @@ span {
   
 }
 
+.Languages h3 {
+  text-align: center;
+  color: white;
+}
+
 .Frameworks-Libraries {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -294,6 +299,11 @@ span {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.Frameworks-Libraries h3 {
+  text-align: center;
+  color: white;
 }
 
 .Databases-and-Tools {
@@ -314,11 +324,72 @@ span {
   padding: 10px;
   box-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
+.Databases-and-Tools h3 {
+  text-align: center;
+  color: white;
+}
 
 /* Section 5 */
+.Section5 { 
+  background-image: url('/Images/city3.gif');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin-top: 0;      /* remove gap at top */
+  padding-top: 1rem;  /* add controlled spacing */
+}
+.Section5 h1, p {
+  color: white;
+}
 
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
 
+input[type=submit]:hover {
+  color: #45a049;
+}
+
+.contact-info{
+  float: right;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+.contact-info label {
+  color:white;
+}
+
+/* Avatar in Section 5 */
+.avatar-contact-container {
+  position: relative;  /* container relative to Section 5 */
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-contact-container model-viewer {
+  position: absolute; 
+  top: 0px;
+  left: 30px;          /* adjust for spacing */
+  width: 350px;        /* slightly bigger than Section 1 */
+  height: 500px;
+}
 
 
 /* section for when using phones to check the website */
@@ -401,4 +472,14 @@ span {
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .avtar-contact-container model-viewer {
+    position: static;   /* remove absolute positioning */
+    display: block;
+    margin: 0 auto;     /* center below contact text */
+    width: 50px;
+    height: 300px;
+  }
 }
